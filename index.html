@@ -1,0 +1,25 @@
+import React from 'react';
+import { ChatBox } from './components/ChatBox';
+import { Sparkles } from './components/Sparkles';
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-transparent flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Background sparkles - subtle for overlay */}
+      <Sparkles className="opacity-20" />
+      
+      {/* Subtle animated background elements for depth */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-pink-500/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-purple-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-cyan-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+      </div>
+
+      {/* Main chat box - positioned for overlay use */}
+      <div className="relative z-10">        
+        <ChatBox />
+      </div>
+    </div>
+  );
+}
+
